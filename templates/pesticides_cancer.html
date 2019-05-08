@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+    	body, html {
+  			margin: 0; 
+  			height: 110%; 
+  			overflow: hidden
+		}
+
+        .bg { 
+  			background-image: url("/static/img/cancer_pest.jpg");
+  			height: 200%; 
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+		}
+
+    </style>
+
+</head>
+<!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<span class="navbar-brand center" style="color:black">CIS550 Project | Pesticides v.s. Cancer</span>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			  <div class="navbar-nav">
+				<a class="nav-item nav-link" href="/" style="color:black">Home</a>
+            	<a class="nav-item nav-link" href="/pesticides" style="color:black">Pesticides</a>
+            	<a class="nav-item nav-link" href="/cancer" style="color:black">Cancer</a>
+            	<a class="nav-item nav-link active" href="/economic" style="color:black">Economic</a>
+              <a class="nav-item nav-link active" href="/pesticides_cancer" style="color:black">Pest-Cancer</a>
+              <a class="nav-item nav-link active" href="/specialty" style="color:black">Specialty</a>
+			  </div>
+			</div>
+	</nav>
+
+<body class="bg"> 
+    <div id="title" class="slide header" >
+    <h1 style="text-align:center">Compare pesticide use and cancer rates! </h1>
+    <h2 style="text-align:center">How are pesticides influencing local cancer rates?</h2>
+    </div>
+    <!-- <div style="color:black;font-weight:bold"> -->
+    <form style="color:black;font-weight:bold" action="/pesticides_cancer" method="POST" enctype=multipart/form-data>    	
+        <span style="background-color:#B10032;border-radius:5px"> Event Type </span><select name="event_type">
+        	<option value="Incidence">Incidence</option>
+        	<option value = "Mortality"> Mortality </option>
+        </select>
+        <br>
+        <span style="background-color:#B10032;border-radius:5px"> Choose Sex </span><select name="sex_info">
+        	<option value="Male and Female">Male and Female</option>
+        	<option value = "Male"> Male </option>
+        	<option value = "Female"> Female </option>
+        </select>
+        <br>
+        <span style="background-color:#B10032;border-radius:5px"> Choose State</span><select name= "state_info">
+					{% for state in states %}
+					<option value= "{{state}}" >{{state}}</option>"
+					{% endfor %}
+        </select>
+        <br>
+        <span style="background-color:#B10032;border-radius:5px"> Choose Race</span><select name= "race_info">
+						{% for race in races %}
+						<option value= "{{race}}">{{race}}</option>"
+						{% endfor %}
+        </select>
+        <br>	
+        <span style="background-color:#B10032;border-radius:5px"> Choose Cancer Type</span><select name= "cancer_info">
+						{% for cancer in cancers %}
+						<option value= "{{cancer}}">{{cancer}}</option>"
+						{% endfor %}
+        </select>
+        <br>	
+        <span style="background-color:#B10032;border-radius:5px"> Choose Compound</span><select name= "compound_info">
+          <option select="selected" value="GLYPHOSATE"> Glyphosate </option>
+      </select>
+      <br>	
+      <span style="background-color:#B10032;border-radius:5px"> Choose Crop</span><select name= "crop_info">
+          {% for crop in crops %}
+          <option value= "{{crop}}">{{crop}}</option>"
+          {% endfor %}
+      </select>
+      <br>	
+        <button type="submit" name = "submit form">Submit!</button>
+       
+    </form>
+    <!-- </div> -->
+
+
+</body>
+</html>
+

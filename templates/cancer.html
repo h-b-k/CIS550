@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+    	body, html {
+  			margin: 0; 
+  			height: 110%; 
+  			overflow: hidden
+		}
+
+        .bg { 
+  			background-image: url("/static/img/cancer_home.jpg");
+  			height: 200%; 
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+		}
+
+
+    </style>
+
+</head>
+<!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<span class="navbar-brand center" style="color:white">CIS550 Project | Cancer</span>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			  <div class="navbar-nav">
+				<a class="nav-item nav-link" href="/" style="color:white">Home</a>
+            	<a class="nav-item nav-link" href="/pesticides" style="color:white">Pesticides</a>
+            	<a class="nav-item nav-link" href="/cancer" style="color:white">Cancer</a>
+            	<a class="nav-item nav-link active" href="/economic" style="color:white">Economic</a>
+                <a class="nav-item nav-link active" href="/pesticides_cancer" style="color:white">Pest-Cancer</a>
+                <a class="nav-item nav-link active" href="/specialty" style="color:white">Specialty</a>
+			  </div>
+			</div>
+	</nav>
+
+<body class="bg"> 
+    <div id="title" class="slide header" >
+    <h1 style="text-align:center">National Cancer Trends Over Time </h1>
+    <h2 style="text-align:center">Are some states more susceptible than others?</h2>
+    </div>
+
+    <!-- <div style="color:black;font-weight:bold"> -->
+    <form style="color:black;font-weight:bold" action="/cancer" method="POST" enctype=multipart/form-data>
+
+        <!-- <span style="background-color:#9DA72C;border-radius:5px"> Chart Type </span><select name= "chart_type" >
+                <option selected="selected"  value="Line">Line</option>
+                <option value = "Histogram"> Histogram </option>
+        </select>
+        <br>   -->   	
+        <span style="background-color:#9DA72C;border-radius:5px"> Event Type </span><select name="event_info">
+        	<option selecet="selected" value="Incidence">Incidence</option>
+        	<option value = "Mortality"> Mortality </option>
+        </select>
+        <br>
+        <span style="background-color:#9DA72C;border-radius:5px"> Choose Metric </span><select name="metric_info">
+        	<option selecet="selected" value="Rate">Rate</option>
+        	<option value = "Absolute"> Absolute </option>
+        </select>	
+        <br>
+        <span style="background-color:#9DA72C;border-radius:5px"> Choose Sex </span><select name="sex_info">
+        	<option selecet="selected" value="">Male and Female</option>
+        	<option value = "Male"> Male </option>
+        	<option value = "Female"> Female </option>
+        </select>
+        <br>
+        <span style="background-color:#9DA72C;border-radius:5px"> Choose State</span><select name= "state_info">
+            <option selected="selected" value="">All States Combined</option>
+					{% for state in states %}
+					<option value= "{{state}}" >{{state}}</option>"
+					{% endfor %}
+        </select>
+        <br>
+        <span style="background-color:#9DA72C;border-radius:5px"> Choose Race</span><select name= "race_info">
+            <option selected="selected" value="">All Races Combined</option>
+						{% for race in races %}
+						<option value= "{{race}}">{{race}}</option>"
+						{% endfor %}
+        </select>
+        <br>	
+        <span style="background-color:#9DA72C;border-radius:5px"> Choose Cancer Type</span><select name= "cancer_info">
+            <option selected="selected" value="">All Cancers Combined</option>
+						{% for cancer in cancers %}
+						<option value= "{{cancer}}">{{cancer}}</option>"
+						{% endfor %}
+        </select>
+        <button type="submit" name = "submit form">Submit!</button>
+       
+    </form>
+    <!-- </div> -->
+
+
+</body>
+</html>
+

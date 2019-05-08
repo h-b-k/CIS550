@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+    	body, html {
+  			margin: 0; 
+  			height: 110%; 
+  			overflow: hidden
+            background-color:#41B288  ;/*#97B6AA;*/
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+		}
+
+        .bg { 
+  			height: 200%; 
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+		}
+
+
+    </style>
+
+</head>
+<!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<span class="navbar-brand center" style="color:white">CIS550 Project | Specialty</span>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			  <div class="navbar-nav">
+				<a class="nav-item nav-link" href="/" style="color:white">Home</a>
+            	<a class="nav-item nav-link" href="/pesticides" style="color:white">Pesticides</a>
+            	<a class="nav-item nav-link" href="/cancer" style="color:white">Cancer</a>
+            	<a class="nav-item nav-link active" href="/economic" style="color:white">Economic</a>
+                <a class="nav-item nav-link active" href="/pesticides_cancer" style="color:white">Pest-Cancer</a>
+                <a class="nav-item nav-link active" href="/specialty" style="color:white">Specialty</a>
+			  </div>
+			</div>
+	</nav>
+
+<body class="bg"> 
+    <div id="title" class="slide header" >
+    <h1 style="text-align:center">Specialty Queries</h1>
+    </div>
+
+    <!-- <div style="color:black;font-weight:bold"> -->
+    <form style="color:black;font-weight:bold" action="/specialty" method="POST" enctype=multipart/form-data>
+        <h1 style="font-size:28px">Find out all state and year combinations with an above average count of cancer and a use of Glyphosate > 10,000,000 kg!
+        </h1>
+        <br>
+        <div>
+        <span style="background-color:#72C;border-radius:5px"> Choose State</span><select name= "state_info">
+                {% for state in states %}
+                <option value= "{{state}}">{{state}}</option>"
+                {% endfor %}
+        </select>
+        {% for yr in yrs_high %}
+        <span> {{ yr }} </span>
+        {% endfor %}
+        </div>
+        <br>
+        <div>
+        <h1>Find all years  where Race1 has a higher rate of cancer counts than Race2 in the state chosen above</h1>
+        <br>
+        <span style="background-color:#72C;border-radius:5px"> Choose Race1</span><select name= "race_info">
+                {% for race in races %}
+                <option value= "{{race}}">{{race}}</option>"
+                {% endfor %}
+        </select>
+        </div>
+        <br>
+        <div>
+        <br>
+        <span style="background-color:#72C;border-radius:5px"> Choose Race2</span><select name= "race_info2">
+                {% for race in races %}
+                <option value= "{{race}}">{{race}}</option>"
+                {% endfor %}
+        </select>
+            {% for y in yrss %}
+            <span> {{ y }} </span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+        <h1>Find all state & year combinations where there was a standard deviation above averge use for gyphosate and and standard deviation below for incidence of cancers  
+        </h1>
+        {% for tup in tups_high_low %}
+        <span> {{ tup }} </span>
+        {% endfor %}
+        </div>
+        <button type="submit" name = "submit form">Submit!</button>
+       
+    </form>
+    <!-- </div> -->
+
+
+</body>
+</html>
+

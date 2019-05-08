@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.js"></script>
+
+	<style>
+    @import url(https://fonts.googleapis.com/css?family=Ovo);
+        .button {
+            background-color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 15px;
+            padding: 16px 32px;
+            
+            cursor: pointer;
+        }
+        .button a {
+          text-decoration: none;
+          color: black;
+          font-family: Ovo;
+          text-align:center;
+          align-items: center;
+          justify-content: center;
+        }
+        .timing {
+          background:rgba(249, 247, 246, 0.5);
+          display:inline-block;
+          margin-left:35%;
+          text-align:center;
+        }
+		
+	</style>
+
+</head>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand center" style="font-weight: bold">CIS550 Project | Pesticides</span>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link" href="/pesticides">Pesticides</a>
+            <a class="nav-item nav-link" href="/cancer">Cancer</a>
+            <a class="nav-item nav-link active" href="/economic">Economic</a>
+            </div>
+        </div>
+</nav>
+	<style>
+      html, body{
+        background-image:url("/static/img/pesticides_results1.jpg");
+        height:100%;
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size:cover;
+      }
+
+      .row {
+        display: flex;
+        margin-top: 5%;
+      }
+
+      .column {
+        flex: 50%;
+      }
+    </style>
+ 
+	<body>
+    <div id="title" class="slide header" >
+    <h1 style="padding-left:15px">What are your thoughts about our pesticide use? </h1>
+    <h2 style="padding-left:15px">Is there such thing as "too much" chemicals on our food?</h2>
+    </div>
+
+  <div class="row">
+
+    <div> 
+      <img src = '{{graph1}}' style="width:700px;height:600px;"> </img>
+    </div>
+
+  </div>
+  <br>
+  <div style="justify-content:center" > <a href="/specialty" class="button">Back</a></div>
+
+    
+
+    <div class="timing">
+            <h2>Queries took {{ query_time }} seconds to load</h2>
+            <h2>Page took {{ load_time }} seconds to load</h2>
+    </div>
+
+
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<style>
+
+    	body, html {
+  			margin: 0; 
+  			height: 110%; 
+  			overflow: hidden
+		}
+
+        .bg { 
+  			background-image: url("/static/img/bees_pesticides.jpg");
+  			height: 100%; 
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+		}
+
+
+    </style>
+
+	</head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<span class="navbar-brand center" style="font-weight:bold">CIS550 Project | Pesticides</span>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			  <div class="navbar-nav">
+				<a class="nav-item nav-link" href="/">Home</a>
+				<a class="nav-item nav-link active" href="/pesticides">Pesticides</a>
+				<a class="nav-item nav-link" href="/cancer">Cancer</a>
+				<a class="nav-item nav-link" href="/economic">Economic </a>
+				<a class="nav-item nav-link active" href="/pesticides_cancer">Pest-Cancer</a>
+				<a class="nav-item nav-link active" href="/specialty">Specialty</a>
+			  </div>
+			</div>
+		  </nav>
+	<body class ="bg">	  
+		<div id="title" class="slide header" >
+    	<h1 style="padding-left:15px">Check out pesticide use in our country over time... </h1>
+    	<h2 style="padding-left:15px">Did you know that pesiticide use and mono cropping <br> is the #1 contributor to declining bee populations?</h2>
+    	</div>
+		  <div class="split left">
+				<div class="centered">
+					<form action="/pesticides" method="POST" enctype=multipart/form-data>
+						<!-- <select name="chart_type"> 
+							<option selected="selected" value="Line">Line</option>
+							<option value="Histogram">Histogram</option>
+						</select> -->
+						<select name= "state_info">
+							<option selected="selected" value="">All States Combined</option>
+							{% for state in states %}
+							<option value= "{{state}}" >{{state}}</option>"
+							{% endfor %}
+						</select>
+						<select name= "compound_info" >
+								<option selected="selected" value="">All Compounds Combined</option>
+								{% for compound in compounds %}
+								<option value= "{{compound}}">{{compound}}</option>"
+								{% endfor %}
+						</select>
+						<select name= "crop_info" >
+								<option selected="selected" value="">Total</option>
+								{% for crop in crops %}
+								<option value= "{{crop}}">{{crop}}</option>"
+								{% endfor %}
+						</select>
+						<button type="submit">Submit!</button>
+					</form>
+				</div>
+			</div>
+	</body>
+</html>
